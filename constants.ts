@@ -1,7 +1,7 @@
 import { Product } from './types';
 
 // Legacy WordPress site URL for Store and Forum pages
-export const LEGACY_SITE_URL = 'https://carvers.clunk.tech';
+export const LEGACY_SITE_URL = 'https://carving.clunk.tech';
 
 export const MOCK_PRODUCTS: Product[] = [
   {

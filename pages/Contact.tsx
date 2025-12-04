@@ -101,7 +101,7 @@ const Contact: React.FC = () => {
                                     <div>
                                         <h3 className="font-bold text-brand-dark mb-1">Community</h3>
                                         <p className="text-brand-muted">Join our forum for discussions, tips, and camaraderie.</p>
-                                        <a href="https://carvers.clunk.tech/community" className="text-brand-accent hover:underline text-sm mt-1 inline-block">
+                                        <a href="https://carving.clunk.tech/community" className="text-brand-accent hover:underline text-sm mt-1 inline-block">
                                             Visit Group Therapy →
                                         </a>
                                     </div>
