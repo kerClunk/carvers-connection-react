@@ -57,7 +57,7 @@ export const MOCK_PRODUCTS: Product[] = [
 
 export const NAV_LINKS = [
   { label: 'Home', path: '/', isExternal: false },
-  { label: 'Forum', path: `${LEGACY_SITE_URL}/community`, isExternal: true },
+  { label: 'Forum', path: '/community', isExternal: false },
   {
     label: 'Prototypes',
     path: '#',
@@ -68,7 +68,7 @@ export const NAV_LINKS = [
     ]
   },
   { label: 'Coaching', path: '/coaching', isExternal: false },
-  { label: 'Store', path: `${LEGACY_SITE_URL}/store`, isExternal: true },
+  { label: 'Store', path: '/store', isExternal: false },
   { label: 'Contact', path: '/contact', isExternal: false },
 ];
 
