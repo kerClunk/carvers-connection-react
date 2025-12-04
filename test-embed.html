@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC Header Embed Test</title>
+
+  <!-- Simulate WordPress theme base styles -->
+  <style>
+    /* Basic WordPress-like reset */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      background: #f0f0f0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Simulated WordPress content */
+    .wp-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .wp-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .wp-content p {
+      margin-bottom: 1rem;
+    }
+
+    /* Test conflicting class names (Tailwind-like) */
+    .bg-red-500 {
+      background: red !important;
+    }
+
+    .text-white {
+      color: white !important;
+    }
+
+    /* Simulated GeneratePress header (to verify it would be hidden) */
+    .site-header-fake {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      display: none; /* Would be hidden in production */
+    }
+  </style>
+
+  <!-- Load the embed CSS (after build) -->
+  <link rel="stylesheet" href="./dist-embed/cc-header.min.css">
+</head>
+<body>
+
+  <!-- This is where the React header will mount -->
+  <div id="cc-header-root"></div>
+
+  <!-- Simulated old WordPress header (would be hidden with display:none) -->
+  <header class="site-header-fake">
+    [Old GeneratePress Header - Would be hidden]
+  </header>
+
+  <!-- Simulated WordPress page content -->
+  <main class="wp-content">
+    <h1>WordPress Page Content</h1>
+    <p>This is a test page to verify the React header embed works correctly.</p>
+
+    <h2>Test Checklist:</h2>
+    <ul>
+      <li>Header renders at top of page</li>
+      <li>Logo displays correctly</li>
+      <li>Navigation links work</li>
+      <li>Dropdown menus appear on hover</li>
+      <li>Cart badge shows count</li>
+      <li>Mobile menu works (resize window)</li>
+      <li>Styles don't conflict with page content</li>
+    </ul>
+
+    <h2>Cart Test Controls:</h2>
+    <p>Open browser console and run:</p>
+    <pre style="background: #222; color: #0f0; padding: 10px; border-radius: 4px;">
+// Update cart count
+window.ccHeaderUpdateCart(5);
+
+// Clear cart
+window.ccHeaderUpdateCart(0);
+    </pre>
+
+    <h2>Style Conflict Test:</h2>
+    <p>These classes should NOT affect the header (they use the cc- prefix):</p>
+    <div class="bg-red-500 text-white" style="padding: 10px; margin: 10px 0;">
+      This div uses .bg-red-500 and .text-white without the cc- prefix.
+      The header should NOT be affected by these styles.
+    </div>
+  </main>
+
+  <!-- WordPress data simulation (normally injected by wp_localize_script) -->
+  <script>
+    window.ccHeaderData = {
+      cartCount: 3,
+      cartUrl: '/cart/',
+      logoUrl: './public/LogoCC.webp', // Use local logo for testing
+      siteUrl: 'https://carving.clunk.tech',
+      currentPath: '/'
+    };
+  </script>
+
+  <!-- Load the embed JS (after build) -->
+  <script src="./dist-embed/cc-header.min.js"></script>
+
+  <!-- Simulate jQuery for WooCommerce events (minimal mock) -->
+  <script>
+    // Minimal jQuery mock for testing cart updates
+    if (typeof window.jQuery === 'undefined') {
+      window.jQuery = function(selector) {
+        const el = typeof selector === 'string' ? document.querySelector(selector) : selector;
+        return {
+          on: function(events, callback) {
+            if (el) {
+              events.split(' ').forEach(event => {
+                el.addEventListener(event, callback);
+              });
+            }
+            return this;
+          }
+        };
+      };
+      window.jQuery.fn = {};
+    }
+  </script>
+
+</body>
+</html>

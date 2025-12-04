@@ -1,0 +1,166 @@
+/* 
+ * Carvers Connection - wpForo Custom CSS
+ * Based on DESIGN.md specifications
+ */
+
+/* =========================================
+   Variables & Fonts
+   ========================================= */
+:root {
+    --brand-dark: #1A1A2E;
+    --brand-gray: #F5F5F7;
+    --brand-accent: #FF4500;
+    /* Burnt Orange */
+    --brand-secondary: #00A8E8;
+    /* Electric Blue */
+    --text-main: #2D3436;
+    --text-muted: #636E72;
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* =========================================
+   Global Styles
+   ========================================= */
+#wpforo #wpforo-wrap {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--brand-gray);
+}
+
+/* Headings */
+#wpforo #wpforo-wrap h1,
+#wpforo #wpforo-wrap h2,
+#wpforo #wpforo-wrap h3,
+#wpforo #wpforo-wrap h4,
+#wpforo #wpforo-wrap h5,
+#wpforo #wpforo-wrap h6,
+#wpforo #wpforo-wrap .wpforo-forum-title,
+#wpforo #wpforo-wrap .wpforo-category-title {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--brand-dark);
+}
+
+/* Links */
+#wpforo #wpforo-wrap a {
+    color: var(--brand-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#wpforo #wpforo-wrap a:hover,
+#wpforo #wpforo-wrap a:focus {
+    color: var(--brand-accent);
+}
+
+/* =========================================
+   Layout & Containers
+   ========================================= */
+/* Main Container Background */
+#wpforo #wpforo-wrap .wpforo-main {
+    background-color: #ffffff;
+    /* Keep content area white for readability */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Category Headers */
+#wpforo #wpforo-wrap .wpforo-category {
+    background-color: var(--brand-dark) !important;
+    border-bottom: 3px solid var(--brand-accent);
+}
+
+#wpforo #wpforo-wrap .wpforo-category .wpforo-cat-panel,
+#wpforo #wpforo-wrap .wpforo-category .cat-title {
+    color: #ffffff !important;
+}
+
+/* Forum List Items */
+#wpforo #wpforo-wrap .wpforo-forum-info,
+#wpforo #wpforo-wrap .wpforo-forum-description {
+    color: var(--text-muted);
+}
+
+/* =========================================
+   Buttons & Actions
+   ========================================= */
+/* Primary Buttons */
+#wpforo #wpforo-wrap .wpf-button,
+#wpforo #wpforo-wrap .wpforo-btn-primary {
+    background-color: var(--brand-accent) !important;
+    border-color: var(--brand-accent) !important;
+    color: #ffffff !important;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+#wpforo #wpforo-wrap .wpf-button:hover,
+#wpforo #wpforo-wrap .wpforo-btn-primary:hover {
+    background-color: #e03e00 !important;
+    /* Slightly darker orange */
+    transform: translateY(-1px);
+}
+
+/* Secondary Buttons / Actions */
+#wpforo #wpforo-wrap .wpf-action {
+    color: var(--brand-secondary);
+}
+
+#wpforo #wpforo-wrap .wpf-action:hover {
+    color: var(--brand-accent);
+}
+
+/* =========================================
+   Navigation & Menus
+   ========================================= */
+#wpforo #wpforo-wrap #wpforo-menu {
+    background-color: var(--brand-dark);
+    border-bottom: 2px solid var(--brand-secondary);
+}
+
+#wpforo #wpforo-wrap #wpforo-menu li a {
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+#wpforo #wpforo-wrap #wpforo-menu li.current-menu-item a,
+#wpforo #wpforo-wrap #wpforo-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--brand-accent);
+}
+
+/* =========================================
+   Topics & Posts
+   ========================================= */
+/* Topic List Header */
+#wpforo #wpforo-wrap .wpforo-topic-head {
+    background-color: var(--brand-gray);
+    border-bottom: 1px solid #e1e1e1;
+}
+
+/* Post Content */
+#wpforo #wpforo-wrap .wpforo-post-content {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Code Blocks */
+#wpforo #wpforo-wrap .wpforo-post-code {
+    background-color: var(--brand-dark);
+    color: var(--brand-gray);
+    border-left: 4px solid var(--brand-secondary);
+}
+
+/* Blockquotes */
+#wpforo #wpforo-wrap blockquote {
+    border-left-color: var(--brand-accent);
+    background-color: var(--brand-gray);
+    color: var(--text-muted);
+}

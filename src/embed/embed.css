@@ -1,0 +1,73 @@
+/*
+ * Carvers Connection Header Embed Styles
+ * This file imports Tailwind with the cc- prefix for WordPress isolation
+ */
+
+/* Font imports must come first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Custom styles that need the cc- prefix manually
+ * These supplement Tailwind's generated classes
+ */
+
+/* Ensure the header container takes full width */
+#cc-header-root {
+  width: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Reset box-sizing within the header scope */
+#cc-header-root *,
+#cc-header-root *::before,
+#cc-header-root *::after {
+  box-sizing: border-box;
+}
+
+/* Ensure links don't inherit WordPress theme styles */
+#cc-header-root a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#cc-header-root button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Smooth transitions for interactive elements */
+#cc-header-root a,
+#cc-header-root button {
+  transition: color 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+/* Dropdown hover states - ensure visibility */
+#cc-header-root .cc-group:hover .group-hover\:cc-opacity-100 {
+  opacity: 1 !important;
+}
+
+#cc-header-root .cc-group:hover .group-hover\:cc-visible {
+  visibility: visible !important;
+}
+
+/* Mobile menu animation */
+#cc-header-root .cc-mobile-menu-enter {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
