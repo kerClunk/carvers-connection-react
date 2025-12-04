@@ -49,11 +49,11 @@ const Home: React.FC = () => {
               Wherever It's Found
             </h1>
             <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
-              <Link to="/store">
-                <Button variant="primary">Shop Gear</Button>
-              </Link>
+              <a href="https://carvers.clunk.tech/store">
+                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-brand-dark">Shop Gear</Button>
+              </a>
               <Link to="/community">
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-brand-dark">Group Therapy</Button>
+                <Button variant="primary">Group Therapy</Button>
               </Link>
             </div>
           </div>
@@ -84,12 +84,12 @@ const Home: React.FC = () => {
               <p className="text-lg text-brand-muted mb-8 leading-relaxed">
                 Browse the carefully curated collection of hardware you need but can't find anywhere else.
               </p>
-              <Link to="/store">
+              <a href="https://carvers.clunk.tech/store">
                 <Button variant="secondary" className="group">
                   Shop Now
                   <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
