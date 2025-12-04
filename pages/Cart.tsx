@@ -14,9 +14,9 @@ const Cart: React.FC = () => {
       <div className="min-h-[60vh] flex flex-col items-center justify-center bg-brand-gray p-4">
         <h2 className="font-display text-3xl font-bold text-brand-dark mb-4 uppercase">Your Cart is Empty</h2>
         <p className="text-gray-500 mb-8">Looks like you haven't found your weapon of choice yet.</p>
-        <Link to="/store">
+        <a href="https://carving.clunk.tech/store/">
           <Button>Return to Shop</Button>
-        </Link>
+        </a>
       </div>
     );
   }

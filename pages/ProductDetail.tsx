@@ -15,7 +15,7 @@ const ProductDetail: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-brand-gray">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-dark mb-4">Product Not Found</h2>
-          <Link to="/store" className="text-brand-accent hover:underline">Return to Store</Link>
+          <a href="https://carving.clunk.tech/store/" className="text-brand-accent hover:underline">Return to Store</a>
         </div>
       </div>
     );
@@ -25,10 +25,10 @@ const ProductDetail: React.FC = () => {
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <Link to="/store" className="inline-flex items-center text-brand-muted hover:text-brand-dark mb-8 transition-colors">
+        <a href="https://carving.clunk.tech/store/" className="inline-flex items-center text-brand-muted hover:text-brand-dark mb-8 transition-colors">
           <ArrowLeft size={16} className="mr-2" />
           Back to Store
-        </Link>
+        </a>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Image Section */}

@@ -52,9 +52,9 @@ const Home: React.FC = () => {
               <a href="https://carving.clunk.tech/store">
                 <Button variant="outline" className="border-white text-white hover:bg-white hover:text-brand-dark">Shop Gear</Button>
               </a>
-              <Link to="/community">
+              <a href="https://carving.clunk.tech/community/">
                 <Button variant="primary">Group Therapy</Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
