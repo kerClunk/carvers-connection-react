@@ -29,7 +29,28 @@ const Header: React.FC = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-8 items-center">
             {NAV_LINKS.map((link) =>
-              link.isExternal ? (
+              link.children ? (
+                // Dropdown menu
+                <div key={link.label} className="relative group">
+                  <button className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors hover:text-brand-accent text-gray-300">
+                    {link.label}
+                    <ChevronDown size={14} className="transform group-hover:rotate-180 transition-transform" />
+                  </button>
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white text-brand-dark rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+                    {link.children.map((child) => (
+                      <a
+                        key={child.path}
+                        href={child.path}
+                        target={child.isExternal ? "_blank" : undefined}
+                        rel={child.isExternal ? "noopener noreferrer" : undefined}
+                        className="block px-4 py-3 hover:bg-gray-100 text-sm font-medium border-b border-gray-100 last:border-0"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : link.isExternal ? (
                 <a
                   key={link.path}
                   href={link.path}
@@ -107,7 +128,26 @@ const Header: React.FC = () => {
         <div className="md:hidden bg-brand-dark border-t border-white/10">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {NAV_LINKS.map((link) =>
-              link.isExternal ? (
+              link.children ? (
+                // Mobile dropdown
+                <div key={link.label}>
+                  <div className="px-3 py-4 text-base font-bold uppercase text-gray-400">
+                    {link.label}
+                  </div>
+                  {link.children.map((child) => (
+                    <a
+                      key={child.path}
+                      href={child.path}
+                      target={child.isExternal ? "_blank" : undefined}
+                      rel={child.isExternal ? "noopener noreferrer" : undefined}
+                      className="block px-6 py-3 text-sm font-medium text-white hover:bg-white/5 hover:text-brand-accent"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              ) : link.isExternal ? (
                 <a
                   key={link.path}
                   href={link.path}

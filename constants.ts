@@ -56,9 +56,19 @@ export const MOCK_PRODUCTS: Product[] = [
 ];
 
 export const NAV_LINKS = [
-  { label: 'Shop', path: `${LEGACY_SITE_URL}/store`, isExternal: true },
+  { label: 'Home', path: '/', isExternal: false },
   { label: 'Forum', path: `${LEGACY_SITE_URL}/community`, isExternal: true },
+  {
+    label: 'Prototypes',
+    path: '#',
+    isExternal: false,
+    children: [
+      { label: 'Snowboards', path: `${LEGACY_SITE_URL}/community/prototype-prototype/`, isExternal: true },
+      { label: 'Bindings', path: 'https://www.edgelever.com/', isExternal: true },
+    ]
+  },
   { label: 'Coaching', path: '/coaching', isExternal: false },
+  { label: 'Store', path: `${LEGACY_SITE_URL}/store`, isExternal: true },
   { label: 'Contact', path: '/contact', isExternal: false },
 ];
 
