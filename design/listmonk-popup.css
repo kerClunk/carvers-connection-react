@@ -1,0 +1,236 @@
+/*
+ * Carvers Connection - Listmonk Newsletter Popup Styles
+ * ======================================================
+ * For embedded subscription form popup on React website
+ * Based on DESIGN.md specifications
+ */
+
+/* CSS Variables */
+:root {
+    --lm-brand-dark: #1A1A2E;
+    --lm-brand-gray: #F5F5F7;
+    --lm-brand-accent: #FF4500;
+    --lm-brand-secondary: #00A8E8;
+    --lm-brand-text: #2D3436;
+    --lm-brand-muted: #636E72;
+}
+
+/* Popup Overlay */
+.listmonk-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 26, 46, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.listmonk-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Popup Container */
+.listmonk-popup {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 20px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.listmonk-overlay.active .listmonk-popup {
+    transform: scale(1) translateY(0);
+}
+
+/* Close Button */
+.listmonk-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    z-index: 10;
+}
+
+.listmonk-close:hover {
+    background: rgba(255, 69, 0, 0.8);
+}
+
+/* Header */
+.listmonk-header {
+    background: var(--lm-brand-dark);
+    padding: 30px 25px 25px;
+    text-align: center;
+    border-bottom: 3px solid var(--lm-brand-accent);
+}
+
+.listmonk-header h2 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.listmonk-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Form Body */
+.listmonk-body {
+    padding: 25px;
+}
+
+/* Form Elements */
+.listmonk-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.listmonk-input {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--lm-brand-text);
+    background: var(--lm-brand-gray);
+    border: 2px solid transparent;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.listmonk-input::placeholder {
+    color: var(--lm-brand-muted);
+}
+
+.listmonk-input:focus {
+    border-color: var(--lm-brand-secondary);
+    box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.15);
+}
+
+/* Submit Button */
+.listmonk-submit {
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--lm-brand-accent);
+    color: #FFFFFF;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.listmonk-submit:hover {
+    background: #E03E00;
+}
+
+.listmonk-submit:active {
+    transform: scale(0.98);
+}
+
+/* Privacy Text */
+.listmonk-privacy {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--lm-brand-muted);
+    text-align: center;
+    margin-top: 8px;
+}
+
+.listmonk-privacy a {
+    color: var(--lm-brand-secondary);
+    text-decoration: none;
+}
+
+.listmonk-privacy a:hover {
+    color: var(--lm-brand-accent);
+    text-decoration: underline;
+}
+
+/* Success State */
+.listmonk-success {
+    text-align: center;
+    padding: 40px 25px;
+}
+
+.listmonk-success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    background: var(--lm-brand-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #FFFFFF;
+}
+
+.listmonk-success h3 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 22px;
+    color: var(--lm-brand-text);
+    margin: 0 0 10px 0;
+}
+
+.listmonk-success p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--lm-brand-muted);
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .listmonk-popup {
+        margin: 15px;
+        max-width: none;
+    }
+
+    .listmonk-header {
+        padding: 25px 20px 20px;
+    }
+
+    .listmonk-header h2 {
+        font-size: 20px;
+    }
+
+    .listmonk-body {
+        padding: 20px;
+    }
+}
